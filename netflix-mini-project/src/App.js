@@ -1,40 +1,122 @@
 import './App.css';
 import Card from './components/Card';
+import Sdata from './data/Sdata';
+
+// if else practce
+const fevSeries = 4;
+
+const FavS = () => {
+  
+  if(fevSeries == 0){
+    return (
+      <Card
+        key = {Sdata[0].id}
+        imgSrc= {Sdata[0].imgSrc}
+        title= {Sdata[0].title}
+        seriesName= {Sdata[0].seriesName}
+        seriesLink= {Sdata[0].seriesLink}
+      />
+    );
+  }else if(fevSeries == 1){
+    return (
+      <Card
+        key = {Sdata[1].id}
+        imgSrc= {Sdata[1].imgSrc}
+        title= {Sdata[1].title}
+        seriesName= {Sdata[1].seriesName}
+        seriesLink= {Sdata[1].seriesLink}
+      />
+    );
+  }
+  else{
+    // nothing match then fetch all
+
+    // this solution is not working in else block
+    // Sdata.map((value) => {
+    //   return(
+    //     // "Warning: Each child in a list should have a unique "key" prop.". error ke hatane ke liye key={value.id} attribute pass karna padega
+    //     <Card
+    //         key = {value.id}
+    //         imgSrc= {value.imgSrc}
+    //         title= {value.title}
+    //         seriesName= {value.seriesName}
+    //         seriesLink= {value.seriesLink}
+    //       />
+    //   );
+    // }); 
+
+    // but this solution is working
+    // return Sdata.map(netflixCard);
+
+    return (
+      <Card
+        key = {Sdata[2].id}
+        imgSrc= {Sdata[2].imgSrc}
+        title= {Sdata[2].title}
+        seriesName= {Sdata[2].seriesName}
+        seriesLink= {Sdata[2].seriesLink}
+      />
+    );
+  
+  }
+}
+
+
+
+
+
+
+
+
+// map method hame 3 parametes deti hai CurrentValue, IndexNumber, Array jisko use kar rahe hai.
+// function netflixCard(value, index, arr){
+//   // console.log(value);
+//   // console.log(index);
+//   // console.log(arr);
+//   return(
+//     <Card
+//         key = {value.id}
+//         imgSrc= {value.imgSrc}
+//         title= {value.title}
+//         seriesName= {value.seriesName}
+//         seriesLink= {value.seriesLink}
+//       />
+//   );
+// }
 
 function App() {
   return (
     // sending data dynamically to the Card component using custom attributes called props.
     <>
-      <Card
-        imgSrc="https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABXjfvqJedjzup_rHu8s9EsGCWCfSMMrc_MTCsX3sYeernRPeuiMNov6hFrzEvEGMi8MyBERxDU6NI8CI-mYOb5TBEtkReaviE9KY.jpg?r=5b8"
-        title="A Netflix Original Series"
-        seriesName="THE PENTHOUSE"
-        seriesLink="https://www.netflix.com/in/title/81552562"
-      />
-      <Card
-        imgSrc="https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABXiQu2-oy5zbRbLu4Cjozm3vQh2gR3YK_-7ZFQPd5dXZ6SyhlCsMRMiyWKGbtzg8ctrok9r_9NpYwCMK6IxLn4Y9lFVpsNZHP4EM.jpg?r=c36"
-        title="A Netflix Original Series"
-        seriesName="VOICE"
-        seriesLink="https://www.netflix.com/in/title/80987095"
-      />
-      <Card
-        imgSrc="https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABdgFbbvXuU-L1QDn0ZoDuATc47p8N-PnCfCE9q2_Z1SU5qAwsG48ZlwgGYGtpWmsvFwcl3XFqvfyTaJuVx1ZlDqfWy_WY0GKCrORvGDxBQ-sXOsymyjp6PTj7i-n9q2All_sdw.jpg?r=7a0"
-        title="A Netflix Original Series"
-        seriesName="DESIGNATED SURVIVOR 60 DAYS"
-        seriesLink="https://www.netflix.com/in/title/81072109"
-      />
-      <Card
-        imgSrc="https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABSEPSa5qatlwk_EhgvBGwTNooBXtB-XBfItqAKDjj1FzHM98NMikOAm36lQFrAgwSYET6Mz7UKmb2B77n6TDHS1RCp6bA0ItrYW79NQwShGjWbTx8BEuytk0V2theHpUtjrboA.jpg?r=647"
-        title="A Netflix Original Series"
-        seriesName="EXTRA CURRICULAR"
-        seriesLink="https://www.netflix.com/in/title/80990668"
-      />
-      <Card
-        imgSrc="https://occ-0-2085-2186.1.nflxso.net/dnm/api/v6/X194eJsgWBDE2aQbaNdmCXGUP-Y/AAAABW1SmrdLTomLy8FLyWK-vF50Xb7JTg4gZo__5ta2DF16-GqjMYvb8wtCgqdoP_Tw4ukP-VPGMHmlqu_bbkSXz_qWatzcEE7wFLLq.jpg?r=97b"
-        title="A Netflix Original Series"
-        seriesName="TAXT DRIVER"
-        seriesLink="https://www.netflix.com/in/title/81552615"
-      />
+      <h1 className='heading_style'>List of Top 5 Netflix Series</h1>
+      {/* <Card
+        imgSrc= {Sdata[0].imgSrc}
+        title= {Sdata[0].title}
+        seriesName= {Sdata[0].seriesName}
+        seriesLink= {Sdata[0].seriesLink}
+      /> */}
+      {/* Going to use map method to ittrate Sdata objects */}
+
+      {/* {Sdata.map(netflixCard)}; */}
+      {/* or using anonimous function */}
+
+      {/* {Sdata.map((value) => {
+        return(
+          // "Warning: Each child in a list should have a unique "key" prop.". error ke hatane ke liye key={value.id} attribute pass karna padega
+          <Card
+              key = {value.id}
+              imgSrc= {value.imgSrc}
+              title= {value.title}
+              seriesName= {value.seriesName}
+              seriesLink= {value.seriesLink}
+            />
+        );
+      })};       */}
+
+      {/* Conditional series rendring */}
+
+      <FavS />
+      
     </>
   );
 }

@@ -4,7 +4,7 @@ import React from "react";
 // props hold all custom attribues and their values;
 
 function Card(props){
-    console.log(props);
+    // console.log(props);
     return (
         <>
             <div className='cards'>
